@@ -29,8 +29,8 @@ uniref50_xml: '/home/gridsan/akolodziej/solab_shared/uniref50/uniref50.xml.gz'
 
 ## Usage
 
-1. Update the input file paths in your configuration file
-3. Create a conda environment for rule 07_align_pairs.smk that includes [Foldcomp](https://github.com/steineggerlab/foldcomp), [pdbtools](https://github.com/haddocking/pdb-tools) and [TMtools](https://github.com/aidenkoloj/TM_tools)
+1. Update the input file paths in the snakemake config file
+3. Create a conda environment for rule 07_align_pairs.smk that includes [Foldcomp](https://github.com/steineggerlab/foldcomp), [pdbtools](https://github.com/haddocking/pdb-tools) and [TMtools](https://github.com/aidenkoloj/TM_tools). Update the path to TM_tools in 07_align_pairs.smk accordingly. 
 4. Activate [snakemake](https://snakemake.github.io/)
 5. Run the pipeline with Snakemake:
    ```bash
