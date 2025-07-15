@@ -1,0 +1,60 @@
+host: d-14-5-1
+Building DAG of jobs...
+outputs/uniprot_to_uniref50_mapping.pkl: True 0
+shared_storage_local_copies: True
+remote_exec: True
+Submitting maximum 100 job(s) over 1.0 second(s).
+Using shell: /usr/bin/bash
+Provided remote nodes: 1
+Resources before job selection: {'_cores': 9223372036854775807, '_nodes': 1, '_job_count': 9223372036854775807}
+Ready jobs: 1
+Select jobs to execute...
+Selecting jobs to run using greedy solver.
+Selected jobs: 1
+Resources after job selection: {'_cores': 9223372036854775806, '_nodes': 0, '_job_count': 100}
+Execute 1 jobs...
+
+[Mon Jul  7 17:52:11 2025]
+rule make_uniref50_dictionary:
+    input: /home/gridsan/akolodziej/solab_shared/uniref50/uniref50.xml.gz
+    output: outputs/uniprot_to_uniref50_mapping.pkl
+    log: logs/uniref50_dictionary.log
+    jobid: 0
+    reason: Forced execution
+    resources: mem_mb=64000, mem_mib=61036, disk_mb=69082, disk_mib=65882, tmpdir=<TBD>, time_min=1200, cpus_per_task=1
+Shell command: python scripts/uniref50_to_dict.py /home/gridsan/akolodziej/solab_shared/uniref50/uniref50.xml.gz outputs/uniprot_to_uniref50_mapping.pkl &> logs/uniref50_dictionary.log
+General args: ['--force', '--target-files-omit-workdir-adjustment', '', '--max-inventory-time 0', '--nocolor', '--notemp', '--no-hooks', '--nolock', '--ignore-incomplete', '', '--verbose ', '--rerun-triggers params mtime input software-env code', '', '', '', '', "--conda-frontend 'conda'", '', '', '', '', '', '--shared-fs-usage software-deployment source-cache persistence sources storage-local-copies input-output', '', "--wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/'", '', '', '', '--printshellcmds ', '', '--latency-wait 5', "--scheduler 'ilp'", '', '--local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl', "--scheduler-solver-path '/home/gridsan/akolodziej/.conda/envs/snakemake/bin'", '', '', '', '', '', '', '--default-resources base64//bWVtX21iPW1pbihtYXgoMippbnB1dC5zaXplX21iLCAxMDAwKSwgODAwMCk= base64//ZGlza19tYj1tYXgoMippbnB1dC5zaXplX21iLCAxMDAwKSBpZiBpbnB1dCBlbHNlIDUwMDAw base64//dG1wZGlyPXN5c3RlbV90bXBkaXI=']
+This job is a group job: False
+The call for this job is: srun -n1 --cpu-bind=q  --cpus-per-task=1  /home/gridsan/akolodziej/.conda/envs/snakemake/bin/python3.12 -m snakemake --snakefile '/home/gridsan/akolodziej/01_insert_domains/Snakefile' --target-jobs 'make_uniref50_dictionary:' --allowed-rules make_uniref50_dictionary --cores 'all' --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --notemp --no-hooks --nolock --ignore-incomplete --verbose  --rerun-triggers params mtime input software-env code --conda-frontend 'conda' --shared-fs-usage software-deployment source-cache persistence sources storage-local-copies input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --printshellcmds  --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/gridsan/akolodziej/.conda/envs/snakemake/bin' --default-resources base64//bWVtX21iPW1pbihtYXgoMippbnB1dC5zaXplX21iLCAxMDAwKSwgODAwMCk= base64//ZGlza19tYj1tYXgoMippbnB1dC5zaXplX21iLCAxMDAwKSBpZiBpbnB1dCBlbHNlIDUwMDAw base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --mode 'remote'
+Job is running on host: d-14-5-1
+host: d-14-5-1
+Building DAG of jobs...
+outputs/uniprot_to_uniref50_mapping.pkl: True 0
+shared_storage_local_copies: True
+remote_exec: True
+Submitting maximum 100 job(s) over 1.0 second(s).
+Using shell: /usr/bin/bash
+Provided cores: 80
+Rules claiming more threads will be scaled down.
+Resources before job selection: {'_cores': 80, '_nodes': 9223372036854775807, '_job_count': 9223372036854775807}
+Ready jobs: 1
+Select jobs to execute...
+Selecting jobs to run using greedy solver.
+Selected jobs: 1
+Resources after job selection: {'_cores': 79, '_nodes': 9223372036854775806, '_job_count': 100}
+Execute 1 jobs...
+
+[Mon Jul  7 17:52:12 2025]
+localrule make_uniref50_dictionary:
+    input: /home/gridsan/akolodziej/solab_shared/uniref50/uniref50.xml.gz
+    output: outputs/uniprot_to_uniref50_mapping.pkl
+    log: logs/uniref50_dictionary.log
+    jobid: 0
+    reason: Forced execution
+    resources: mem_mb=64000, mem_mib=61036, disk_mb=69082, disk_mib=65882, tmpdir=/state/partition1/slurm_tmp/1140992.0.0, time_min=1200, cpus_per_task=1
+Shell command: python scripts/uniref50_to_dict.py /home/gridsan/akolodziej/solab_shared/uniref50/uniref50.xml.gz outputs/uniprot_to_uniref50_mapping.pkl &> logs/uniref50_dictionary.log
+Waiting for running jobs to complete.
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd-d-14-5-1: error: *** JOB 1140992 ON d-14-5-1 CANCELLED AT 2025-07-07T18:08:06 ***
+slurmstepd-d-14-5-1: error: *** STEP 1140992.0 ON d-14-5-1 CANCELLED AT 2025-07-07T18:08:06 ***
+Will exit after finishing currently running jobs (scheduler).

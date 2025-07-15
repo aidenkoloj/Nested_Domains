@@ -1,0 +1,149 @@
+None
+host: login-4
+Building DAG of jobs...
+Need to rerun job intersect_with_uniref50 because of missing output required by all.
+Need to rerun job count_caths because of missing output required by all.
+Need to rerun job count_caths because job intersect_with_uniref50 has to be rerun.
+Need to rerun job all because job intersect_with_uniref50 has to be rerun.
+Need to rerun job all because job count_caths has to be rerun.
+outputs/insert_cath_counts.csv outputs/parent_cath_counts.csv: False 1
+outputs/uniref50_nested_domain_pairs.tsv outputs/unmapped_uniprot_ids.txt outputs/uniref50_frequency.csv: True 0
+: False 2
+shared_storage_local_copies: True
+remote_exec: False
+Submitting maximum 100 job(s) over 1.0 second(s).
+SLURM run ID: 158c961a-31c0-401c-9eb9-c47d514432c4
+Using shell: /usr/bin/bash
+Provided remote nodes: 5
+Job stats:
+job                        count
+-----------------------  -------
+all                            1
+count_caths                    1
+intersect_with_uniref50        1
+total                          3
+
+Resources before job selection: {'_cores': 9223372036854775807, '_nodes': 5, '_job_count': 9223372036854775807}
+Ready jobs: 1
+Select jobs to execute...
+Selecting jobs to run using greedy solver.
+Selected jobs: 1
+Resources after job selection: {'_cores': 9223372036854775806, '_nodes': 4, '_job_count': 100}
+Execute 1 jobs...
+[Tue Jul  8 20:39:55 2025]
+rule intersect_with_uniref50:
+    input: outputs/uniprot_to_uniref50_mapping.pkl, outputs/nested_domain_pairs.tsv
+    output: outputs/uniref50_nested_domain_pairs.tsv, outputs/unmapped_uniprot_ids.txt, outputs/uniref50_frequency.csv
+    log: logs/intersect_with_uniref50.log
+    jobid: 3
+    reason: Missing output files: outputs/uniref50_nested_domain_pairs.tsv
+    resources: tmpdir=<TBD>, mem_mb=64000, mem_mib=61036, time_min=720, cpus_per_task=1
+Shell command: 
+        python -u scripts/intersect_nested_domain_pairs.py outputs/uniprot_to_uniref50_mapping.pkl outputs/nested_domain_pairs.tsv outputs/uniref50_nested_domain_pairs.tsv outputs/unmapped_uniprot_ids.txt outputs/uniref50_frequency.csv &> logs/intersect_with_uniref50.log 
+        
+No SLURM account given, trying to guess.
+Unable to guess SLURM account. Trying to proceed without.
+No wall time information given. This might or might not work on your cluster. If not, specify the resource runtime in your rule or as a reasonable default via --default-resources.
+General args: ['--force', '--target-files-omit-workdir-adjustment', '', '--max-inventory-time 0', '--nocolor', '--notemp', '--no-hooks', '--nolock', '--ignore-incomplete', '', '--verbose ', '--rerun-triggers params mtime software-env code input', '', '', '', '', "--conda-frontend 'conda'", '', '', '', '', '', '--shared-fs-usage software-deployment source-cache input-output storage-local-copies sources persistence', '', "--wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/'", '', '', '', '--printshellcmds ', '', '--latency-wait 5', "--scheduler 'ilp'", '', '--local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl', "--scheduler-solver-path '/home/gridsan/akolodziej/.conda/envs/snakemake/bin'", '', '', '', '', '', '', '--default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI=', '']
+sbatch call: sbatch --parsable --job-name 158c961a-31c0-401c-9eb9-c47d514432c4 --output "/home/gridsan/akolodziej/01_insert_domains/.snakemake/slurm_logs/rule_intersect_with_uniref50/%j.log" --export=ALL --comment "rule_intersect_with_uniref50"   -p xeon-g6-volta --mem 64000 --ntasks=1 --cpus-per-task=1 -D '/home/gridsan/akolodziej/01_insert_domains' --wrap="/home/gridsan/akolodziej/.conda/envs/snakemake/bin/python3.12 -m snakemake --snakefile '/home/gridsan/akolodziej/01_insert_domains/Snakefile' --target-jobs 'intersect_with_uniref50:' --allowed-rules intersect_with_uniref50 --cores 'all' --attempt 1 --force-use-threads  --wait-for-files '/home/gridsan/akolodziej/01_insert_domains/.snakemake/tmp.5k2wxjxo' 'outputs/uniprot_to_uniref50_mapping.pkl' 'outputs/nested_domain_pairs.tsv' --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --notemp --no-hooks --nolock --ignore-incomplete --verbose  --rerun-triggers params mtime software-env code input --conda-frontend 'conda' --shared-fs-usage software-deployment source-cache input-output storage-local-copies sources persistence --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --printshellcmds  --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/gridsan/akolodziej/.conda/envs/snakemake/bin' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --executor slurm-jobstep --jobs 1 --mode 'remote'"
+Job 3 has been submitted with SLURM jobid 1144253 (log: /home/gridsan/akolodziej/01_insert_domains/.snakemake/slurm_logs/rule_intersect_with_uniref50/1144253.log).
+Waiting for running jobs to complete.
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-06T20:00 --endtime now --name 158c961a-31c0-401c-9eb9-c47d514432c4
+It took: 0.10572147369384766 seconds
+The output is:
+'1144253|RUNNING
+'
+
+status_of_jobs after sacct is: {'1144253': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1144253'}
+active_jobs_seen_by_sacct are: {'1144253'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-06T20:00 --endtime now --name 158c961a-31c0-401c-9eb9-c47d514432c4
+It took: 0.10017776489257812 seconds
+The output is:
+'1144253|RUNNING
+'
+
+status_of_jobs after sacct is: {'1144253': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1144253'}
+active_jobs_seen_by_sacct are: {'1144253'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-06T20:00 --endtime now --name 158c961a-31c0-401c-9eb9-c47d514432c4
+It took: 0.10993361473083496 seconds
+The output is:
+'1144253|RUNNING
+'
+
+status_of_jobs after sacct is: {'1144253': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1144253'}
+active_jobs_seen_by_sacct are: {'1144253'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-06T20:00 --endtime now --name 158c961a-31c0-401c-9eb9-c47d514432c4
+It took: 0.10984039306640625 seconds
+The output is:
+'1144253|RUNNING
+'
+
+status_of_jobs after sacct is: {'1144253': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1144253'}
+active_jobs_seen_by_sacct are: {'1144253'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-06T20:00 --endtime now --name 158c961a-31c0-401c-9eb9-c47d514432c4
+It took: 0.11016035079956055 seconds
+The output is:
+'1144253|FAILED
+'
+
+status_of_jobs after sacct is: {'1144253': 'FAILED'}
+active_jobs_ids_with_current_sacct_status are: {'1144253'}
+active_jobs_seen_by_sacct are: {'1144253'}
+missing_sacct_status are: set()
+[Tue Jul  8 20:42:56 2025]
+Error in rule intersect_with_uniref50:
+    message: SLURM-job '1144253' failed, SLURM status is: 'FAILED'. For further error details see the cluster/cloud log and the log files of the involved rule(s).
+    jobid: 3
+    input: outputs/uniprot_to_uniref50_mapping.pkl, outputs/nested_domain_pairs.tsv
+    output: outputs/uniref50_nested_domain_pairs.tsv, outputs/unmapped_uniprot_ids.txt, outputs/uniref50_frequency.csv
+    log: logs/intersect_with_uniref50.log, /home/gridsan/akolodziej/01_insert_domains/.snakemake/slurm_logs/rule_intersect_with_uniref50/1144253.log (check log file(s) for error details)
+    shell:
+        
+        python -u scripts/intersect_nested_domain_pairs.py outputs/uniprot_to_uniref50_mapping.pkl outputs/nested_domain_pairs.tsv outputs/uniref50_nested_domain_pairs.tsv outputs/unmapped_uniprot_ids.txt outputs/uniref50_frequency.csv &> logs/intersect_with_uniref50.log 
+        
+        (command exited with non-zero exit code)
+    external_jobid: 1144253
+Shutting down, this might take some time.
+Cleaning up log files older than 10 day(s).
+Exiting because a job execution failed. Look below for error messages
+[Tue Jul  8 20:43:56 2025]
+Error in rule intersect_with_uniref50:
+    message: None
+    jobid: 3
+    input: outputs/uniprot_to_uniref50_mapping.pkl, outputs/nested_domain_pairs.tsv
+    output: outputs/uniref50_nested_domain_pairs.tsv, outputs/unmapped_uniprot_ids.txt, outputs/uniref50_frequency.csv
+    log: logs/intersect_with_uniref50.log (check log file(s) for error details)
+    shell:
+        
+        python -u scripts/intersect_nested_domain_pairs.py outputs/uniprot_to_uniref50_mapping.pkl outputs/nested_domain_pairs.tsv outputs/uniref50_nested_domain_pairs.tsv outputs/unmapped_uniprot_ids.txt outputs/uniref50_frequency.csv &> logs/intersect_with_uniref50.log 
+        
+        (command exited with non-zero exit code)
+Complete log(s): /home/gridsan/akolodziej/01_insert_domains/.snakemake/log/2025-07-08T203955.726967.snakemake.log
+unlocking
+removing lock
+removing lock
+removed all locks
+Full Traceback (most recent call last):
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/cli.py", line 2164, in args_to_api
+    dag_api.execute_workflow(
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/api.py", line 603, in execute_workflow
+    workflow.execute(
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/workflow.py", line 1451, in execute
+    raise WorkflowError("At least one job did not complete successfully.")
+snakemake_interface_common.exceptions.WorkflowError: At least one job did not complete successfully.
+
+WorkflowError:
+At least one job did not complete successfully.

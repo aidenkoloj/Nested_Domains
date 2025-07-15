@@ -1,0 +1,158 @@
+host: d-12-13-1
+Building DAG of jobs...
+outputs/insert_cath_counts.csv outputs/parent_cath_counts.csv: True 0
+shared_storage_local_copies: True
+remote_exec: True
+Submitting maximum 100 job(s) over 1.0 second(s).
+Using shell: /usr/bin/bash
+Provided remote nodes: 1
+Resources before job selection: {'_cores': 9223372036854775807, '_nodes': 1, '_job_count': 9223372036854775807}
+Ready jobs: 1
+Select jobs to execute...
+Selecting jobs to run using greedy solver.
+Selected jobs: 1
+Resources after job selection: {'_cores': 9223372036854775806, '_nodes': 0, '_job_count': 100}
+Execute 1 jobs...
+
+[Wed Jul  9 15:05:49 2025]
+rule count_caths:
+    input: outputs/uniref50_nested_domain_pairs.tsv
+    output: outputs/insert_cath_counts.csv, outputs/parent_cath_counts.csv
+    log: logs/count_caths.log
+    jobid: 0
+    reason: Forced execution
+    resources: mem_mb=8000, mem_mib=7630, disk_mb=1000, disk_mib=954, tmpdir=<TBD>, time_min=120, cpus_per_task=1
+Shell command: python -u scripts/count_caths.py outputs/uniref50_nested_domain_pairs.tsv outputs/insert_cath_counts.csv outputs/parent_cath_counts.csv &> logs/count_caths.log
+General args: ['--force', '--target-files-omit-workdir-adjustment', '', '--max-inventory-time 0', '--nocolor', '--notemp', '--no-hooks', '--nolock', '--ignore-incomplete', '', '--verbose ', '--rerun-triggers params mtime input code software-env', '', '', '', '', "--conda-frontend 'conda'", '', '', '', '', '', '--shared-fs-usage software-deployment source-cache storage-local-copies persistence input-output sources', '', "--wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/'", '', '', '', '--printshellcmds ', '', '--latency-wait 5', "--scheduler 'ilp'", '', '--local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl', "--scheduler-solver-path '/home/gridsan/akolodziej/.conda/envs/snakemake/bin'", '', '', '', '', '', '', '--default-resources base64//bWVtX21iPW1pbihtYXgoMippbnB1dC5zaXplX21iLCAxMDAwKSwgODAwMCk= base64//ZGlza19tYj1tYXgoMippbnB1dC5zaXplX21iLCAxMDAwKSBpZiBpbnB1dCBlbHNlIDUwMDAw base64//dG1wZGlyPXN5c3RlbV90bXBkaXI=']
+This job is a group job: False
+The call for this job is: srun -n1 --cpu-bind=q  --cpus-per-task=1  /home/gridsan/akolodziej/.conda/envs/snakemake/bin/python3.12 -m snakemake --snakefile '/home/gridsan/akolodziej/01_insert_domains/Snakefile' --target-jobs 'count_caths:' --allowed-rules count_caths --cores 'all' --attempt 1 --force-use-threads  --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --notemp --no-hooks --nolock --ignore-incomplete --verbose  --rerun-triggers params mtime input code software-env --conda-frontend 'conda' --shared-fs-usage software-deployment source-cache storage-local-copies persistence input-output sources --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --printshellcmds  --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/gridsan/akolodziej/.conda/envs/snakemake/bin' --default-resources base64//bWVtX21iPW1pbihtYXgoMippbnB1dC5zaXplX21iLCAxMDAwKSwgODAwMCk= base64//ZGlza19tYj1tYXgoMippbnB1dC5zaXplX21iLCAxMDAwKSBpZiBpbnB1dCBlbHNlIDUwMDAw base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --mode 'remote'
+Job is running on host: d-12-13-1
+host: d-12-13-1
+Building DAG of jobs...
+outputs/insert_cath_counts.csv outputs/parent_cath_counts.csv: True 0
+shared_storage_local_copies: True
+remote_exec: True
+Submitting maximum 100 job(s) over 1.0 second(s).
+Using shell: /usr/bin/bash
+Provided cores: 80
+Rules claiming more threads will be scaled down.
+Resources before job selection: {'_cores': 80, '_nodes': 9223372036854775807, '_job_count': 9223372036854775807}
+Ready jobs: 1
+Select jobs to execute...
+Selecting jobs to run using greedy solver.
+Selected jobs: 1
+Resources after job selection: {'_cores': 79, '_nodes': 9223372036854775806, '_job_count': 100}
+Execute 1 jobs...
+
+[Wed Jul  9 15:05:51 2025]
+localrule count_caths:
+    input: outputs/uniref50_nested_domain_pairs.tsv
+    output: outputs/insert_cath_counts.csv, outputs/parent_cath_counts.csv
+    log: logs/count_caths.log
+    jobid: 0
+    reason: Forced execution
+    resources: mem_mb=8000, mem_mib=7630, disk_mb=1000, disk_mib=954, tmpdir=/state/partition1/slurm_tmp/1153368.0.0, time_min=120, cpus_per_task=1
+Shell command: python -u scripts/count_caths.py outputs/uniref50_nested_domain_pairs.tsv outputs/insert_cath_counts.csv outputs/parent_cath_counts.csv &> logs/count_caths.log
+Waiting for running jobs to complete.
+Full Traceback (most recent call last):
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/executors/local.py", line 425, in run_wrapper
+    run(
+  File "/home/gridsan/akolodziej/01_insert_domains/rules/04_count_caths.smk", line 31, in __rule_count_caths
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/shell.py", line 358, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'set -euo pipefail;  python -u scripts/count_caths.py outputs/uniref50_nested_domain_pairs.tsv outputs/insert_cath_counts.csv outputs/parent_cath_counts.csv &> logs/count_caths.log' returned non-zero exit status 1.
+
+Full Traceback (most recent call last):
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/executors/local.py", line 425, in run_wrapper
+    run(
+  File "/home/gridsan/akolodziej/01_insert_domains/rules/04_count_caths.smk", line 31, in __rule_count_caths
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/shell.py", line 358, in __new__
+    raise sp.CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command 'set -euo pipefail;  python -u scripts/count_caths.py outputs/uniref50_nested_domain_pairs.tsv outputs/insert_cath_counts.csv outputs/parent_cath_counts.csv &> logs/count_caths.log' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/concurrent/futures/thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/executors/local.py", line 247, in cached_or_run
+    run_func(*args)
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/executors/local.py", line 461, in run_wrapper
+    raise RuleException(
+snakemake.exceptions.RuleException: CalledProcessError in file "/home/gridsan/akolodziej/01_insert_domains/rules/04_count_caths.smk", line 14:
+Command 'set -euo pipefail;  python -u scripts/count_caths.py outputs/uniref50_nested_domain_pairs.tsv outputs/insert_cath_counts.csv outputs/parent_cath_counts.csv &> logs/count_caths.log' returned non-zero exit status 1.
+
+RuleException:
+CalledProcessError in file "/home/gridsan/akolodziej/01_insert_domains/rules/04_count_caths.smk", line 14:
+Command 'set -euo pipefail;  python -u scripts/count_caths.py outputs/uniref50_nested_domain_pairs.tsv outputs/insert_cath_counts.csv outputs/parent_cath_counts.csv &> logs/count_caths.log' returned non-zero exit status 1.
+[Wed Jul  9 15:05:51 2025]
+Error in rule count_caths:
+    message: None
+    jobid: 0
+    input: outputs/uniref50_nested_domain_pairs.tsv
+    output: outputs/insert_cath_counts.csv, outputs/parent_cath_counts.csv
+    log: logs/count_caths.log (check log file(s) for error details)
+    shell:
+        python -u scripts/count_caths.py outputs/uniref50_nested_domain_pairs.tsv outputs/insert_cath_counts.csv outputs/parent_cath_counts.csv &> logs/count_caths.log
+        (command exited with non-zero exit code)
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Wed Jul  9 15:05:51 2025]
+Error in rule count_caths:
+    message: None
+    jobid: 0
+    input: outputs/uniref50_nested_domain_pairs.tsv
+    output: outputs/insert_cath_counts.csv, outputs/parent_cath_counts.csv
+    log: logs/count_caths.log (check log file(s) for error details)
+    shell:
+        python -u scripts/count_caths.py outputs/uniref50_nested_domain_pairs.tsv outputs/insert_cath_counts.csv outputs/parent_cath_counts.csv &> logs/count_caths.log
+        (command exited with non-zero exit code)
+Storing output in storage.
+Full Traceback (most recent call last):
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/cli.py", line 2164, in args_to_api
+    dag_api.execute_workflow(
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/api.py", line 603, in execute_workflow
+    workflow.execute(
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/workflow.py", line 1451, in execute
+    raise WorkflowError("At least one job did not complete successfully.")
+snakemake_interface_common.exceptions.WorkflowError: At least one job did not complete successfully.
+
+WorkflowError:
+At least one job did not complete successfully.
+srun: error: d-12-13-1: task 0: Exited with exit code 1
+[Wed Jul  9 15:05:52 2025]
+Error in rule count_caths:
+    message: None
+    jobid: 0
+    input: outputs/uniref50_nested_domain_pairs.tsv
+    output: outputs/insert_cath_counts.csv, outputs/parent_cath_counts.csv
+    log: logs/count_caths.log (check log file(s) for error details)
+    shell:
+        python -u scripts/count_caths.py outputs/uniref50_nested_domain_pairs.tsv outputs/insert_cath_counts.csv outputs/parent_cath_counts.csv &> logs/count_caths.log
+        (command exited with non-zero exit code)
+Waiting for running jobs to complete.
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Wed Jul  9 15:05:52 2025]
+Error in rule count_caths:
+    message: None
+    jobid: 0
+    input: outputs/uniref50_nested_domain_pairs.tsv
+    output: outputs/insert_cath_counts.csv, outputs/parent_cath_counts.csv
+    log: logs/count_caths.log (check log file(s) for error details)
+    shell:
+        python -u scripts/count_caths.py outputs/uniref50_nested_domain_pairs.tsv outputs/insert_cath_counts.csv outputs/parent_cath_counts.csv &> logs/count_caths.log
+        (command exited with non-zero exit code)
+Storing output in storage.
+Full Traceback (most recent call last):
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/cli.py", line 2164, in args_to_api
+    dag_api.execute_workflow(
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/api.py", line 603, in execute_workflow
+    workflow.execute(
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/workflow.py", line 1451, in execute
+    raise WorkflowError("At least one job did not complete successfully.")
+snakemake_interface_common.exceptions.WorkflowError: At least one job did not complete successfully.
+
+WorkflowError:
+At least one job did not complete successfully.

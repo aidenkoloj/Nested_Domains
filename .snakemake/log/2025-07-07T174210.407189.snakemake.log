@@ -1,0 +1,71 @@
+None
+host: login-4
+Building DAG of jobs...
+Need to rerun job make_uniref50_dictionary because of missing output required by all.
+Need to rerun job all because job make_uniref50_dictionary has to be rerun.
+outputs/uniprot_to_uniref50_mapping.pkl: True 0
+: False 1
+shared_storage_local_copies: True
+remote_exec: False
+Submitting maximum 100 job(s) over 1.0 second(s).
+SLURM run ID: 394957b2-a159-43ae-bdfe-f5a5a6403996
+Using shell: /usr/bin/bash
+Provided remote nodes: 1
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+make_uniref50_dictionary        1
+total                           2
+
+Resources before job selection: {'_cores': 9223372036854775807, '_nodes': 1, '_job_count': 9223372036854775807}
+Ready jobs: 1
+Select jobs to execute...
+Selecting jobs to run using greedy solver.
+Selected jobs: 1
+Resources after job selection: {'_cores': 9223372036854775806, '_nodes': 0, '_job_count': 100}
+Execute 1 jobs...
+[Mon Jul  7 17:42:10 2025]
+rule make_uniref50_dictionary:
+    input: /home/gridsan/akolodziej/solab_shared/uniref50/uniref50.xml.gz
+    output: outputs/uniprot_to_uniref50_mapping.pkl
+    jobid: 1
+    reason: Missing output files: outputs/uniprot_to_uniref50_mapping.pkl
+    resources: tmpdir=<TBD>, mem_mb=64000, mem_mib=61036, time_min=1200, cpus_per_task=1
+Shell command: python scripts/uniref50_to_dict.py /home/gridsan/akolodziej/solab_shared/uniref50/uniref50.xml.gz outputs/uniprot_to_uniref50_mapping.pkl
+No SLURM account given, trying to guess.
+Unable to guess SLURM account. Trying to proceed without.
+No wall time information given. This might or might not work on your cluster. If not, specify the resource runtime in your rule or as a reasonable default via --default-resources.
+General args: ['--force', '--target-files-omit-workdir-adjustment', '', '--max-inventory-time 0', '--nocolor', '--notemp', '--no-hooks', '--nolock', '--ignore-incomplete', '', '--verbose ', '--rerun-triggers code software-env params mtime input', '', '', '', '', "--conda-frontend 'conda'", '', '', '', '', '', '--shared-fs-usage input-output storage-local-copies sources source-cache software-deployment persistence', '', "--wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/'", '', '', '', '--printshellcmds ', '', '--latency-wait 5', "--scheduler 'ilp'", '', '--local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl', "--scheduler-solver-path '/home/gridsan/akolodziej/.conda/envs/snakemake/bin'", '', '', '', '', '', '', '--default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI=', '']
+sbatch call: sbatch --parsable --job-name 394957b2-a159-43ae-bdfe-f5a5a6403996 --output "/home/gridsan/akolodziej/01_insert_domains/.snakemake/slurm_logs/rule_make_uniref50_dictionary/%j.log" --export=ALL --comment "rule_make_uniref50_dictionary"   -p xeon-g6-volta --mem 64000 --ntasks=1 --cpus-per-task=1 -D '/home/gridsan/akolodziej/01_insert_domains' --wrap="/home/gridsan/akolodziej/.conda/envs/snakemake/bin/python3.12 -m snakemake --snakefile '/home/gridsan/akolodziej/01_insert_domains/Snakefile' --target-jobs 'make_uniref50_dictionary:' --allowed-rules make_uniref50_dictionary --cores 'all' --attempt 1 --force-use-threads  --wait-for-files '/home/gridsan/akolodziej/01_insert_domains/.snakemake/tmp.mu__7ptn' '/home/gridsan/akolodziej/solab_shared/uniref50/uniref50.xml.gz' --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --notemp --no-hooks --nolock --ignore-incomplete --verbose  --rerun-triggers code software-env params mtime input --conda-frontend 'conda' --shared-fs-usage input-output storage-local-copies sources source-cache software-deployment persistence --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --printshellcmds  --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/gridsan/akolodziej/.conda/envs/snakemake/bin' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --executor slurm-jobstep --jobs 1 --mode 'remote'"
+Job 1 has been submitted with SLURM jobid 1140958 (log: /home/gridsan/akolodziej/01_insert_domains/.snakemake/slurm_logs/rule_make_uniref50_dictionary/1140958.log).
+Waiting for running jobs to complete.
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T17:00 --endtime now --name 394957b2-a159-43ae-bdfe-f5a5a6403996
+It took: 0.109588623046875 seconds
+The output is:
+'1140958|RUNNING
+'
+
+status_of_jobs after sacct is: {'1140958': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1140958'}
+active_jobs_seen_by_sacct are: {'1140958'}
+missing_sacct_status are: set()
+Terminating processes on user request, this might take some time.
+Cleaning up log files older than 10 day(s).
+Complete log(s): /home/gridsan/akolodziej/01_insert_domains/.snakemake/log/2025-07-07T174210.407189.snakemake.log
+unlocking
+removing lock
+removing lock
+removed all locks
+Full Traceback (most recent call last):
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/cli.py", line 2164, in args_to_api
+    dag_api.execute_workflow(
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/api.py", line 603, in execute_workflow
+    workflow.execute(
+  File "/home/gridsan/akolodziej/.conda/envs/snakemake/lib/python3.12/site-packages/snakemake/workflow.py", line 1451, in execute
+    raise WorkflowError("At least one job did not complete successfully.")
+snakemake_interface_common.exceptions.WorkflowError: At least one job did not complete successfully.
+
+WorkflowError:
+At least one job did not complete successfully.

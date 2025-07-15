@@ -1,0 +1,3 @@
+KeyError in file "/home/gridsan/akolodziej/01_insert_domains/rules/uniref50_dictionary.smk", line 3:
+'uniref50'
+  File "/home/gridsan/akolodziej/01_insert_domains/rules/uniref50_dictionary.smk", line 3, in <module>

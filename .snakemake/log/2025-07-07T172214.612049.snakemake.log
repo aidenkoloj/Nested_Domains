@@ -1,0 +1,42 @@
+None
+host: login-4
+Building DAG of jobs...
+SLURM run ID: efb7a802-5def-49df-8d28-5d1a8e7050a3
+Using shell: /usr/bin/bash
+Provided remote nodes: 1
+Job stats:
+job                        count
+-----------------------  -------
+all                            1
+testing_snakemake_slurm        1
+total                          2
+
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Jul  7 17:22:14 2025]
+rule testing_snakemake_slurm:
+    input: data/test.pdb
+    output: outputs/test_out.pdb
+    jobid: 1
+    reason: Missing output files: outputs/test_out.pdb
+    resources: tmpdir=<TBD>, mem_mb=4000, mem_mib=3815, time_min=60, cpus_per_task=1
+No SLURM account given, trying to guess.
+Unable to guess SLURM account. Trying to proceed without.
+No wall time information given. This might or might not work on your cluster. If not, specify the resource runtime in your rule or as a reasonable default via --default-resources.
+Job 1 has been submitted with SLURM jobid 1140836 (log: /home/gridsan/akolodziej/01_insert_domains/.snakemake/slurm_logs/rule_testing_snakemake_slurm/1140836.log).
+[Mon Jul  7 17:22:54 2025]
+Finished jobid: 1 (Rule: testing_snakemake_slurm)
+1 of 2 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Jul  7 17:22:54 2025]
+localrule all:
+    input: outputs/test_out.pdb
+    jobid: 0
+    reason: Input files updated by another job: outputs/test_out.pdb
+    resources: tmpdir=/tmp
+[Mon Jul  7 17:22:54 2025]
+Finished jobid: 0 (Rule: all)
+2 of 2 steps (100%) done
+Cleaning up log files older than 10 day(s).
+Complete log(s): /home/gridsan/akolodziej/01_insert_domains/.snakemake/log/2025-07-07T172214.612049.snakemake.log

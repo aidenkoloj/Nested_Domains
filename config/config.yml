@@ -1,0 +1,44 @@
+
+# =========================
+# STARTING INPUTS
+# =========================
+
+TED_domains: '/home/gridsan/akolodziej/TED/ted_365m.domain_summary.cath.globularity.taxid.tsv'
+uniref50_xml: '/home/gridsan/akolodziej/solab_shared/uniref50/uniref50.xml.gz'
+test_pdb: 'data/test.pdb'
+
+# =====================
+# Outputs
+# =====================
+
+# 01
+uniref50_dict: 'outputs/uniprot_to_uniref50_mapping.pkl'
+
+# 02
+nested_domain_pairs: 'outputs/nested_domain_pairs_validations.tsv'
+
+# 03
+uniref50_nested_domain_pairs: 'outputs/uniref50_nested_domain_pairs.tsv'
+unmapped_uniprot_ids: 'outputs/unmapped_uniprot_ids.txt'
+uniref50_frequency: 'outputs/uniref50_frequency.csv'
+
+# 04
+insert_cath_counts: 'outputs/insert_cath_counts.csv'
+parent_cath_counts: 'outputs/parent_cath_counts.csv'
+
+# 05
+popular_inserts: 'outputs/popular_inserts.csv'
+
+# 06
+parent_insert_duplications: 'outputs/parent_insert_duplications.tsv'
+
+# 07
+parent_insert_CP_scores: 'outputs/parent_insert_CP_scores.tsv'
+
+
+# other
+test_pdb_out: 'outputs/test_out.pdb'
+
+#  =========================
+# ANALYSIS SETTINGS
+# =========================

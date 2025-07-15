@@ -1,0 +1,38 @@
+Assuming unrestricted shared filesystem usage.
+None
+host: login-4
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                        count
+-----------------------  -------
+all                            1
+testing_snakemake_slurm        1
+total                          2
+
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Jul  7 17:06:29 2025]
+localrule testing_snakemake_slurm:
+    input: data/test.pdb
+    output: outputs/test_out.pdb
+    jobid: 1
+    reason: Missing output files: outputs/test_out.pdb
+    resources: tmpdir=/tmp
+[Mon Jul  7 17:06:29 2025]
+Finished jobid: 1 (Rule: testing_snakemake_slurm)
+1 of 2 steps (50%) done
+Select jobs to execute...
+Execute 1 jobs...
+[Mon Jul  7 17:06:29 2025]
+localrule all:
+    input: outputs/test_out.pdb
+    jobid: 0
+    reason: Input files updated by another job: outputs/test_out.pdb
+    resources: tmpdir=/tmp
+[Mon Jul  7 17:06:29 2025]
+Finished jobid: 0 (Rule: all)
+2 of 2 steps (100%) done
+Complete log(s): /home/gridsan/akolodziej/01_insert_domains/.snakemake/log/2025-07-07T170629.024460.snakemake.log

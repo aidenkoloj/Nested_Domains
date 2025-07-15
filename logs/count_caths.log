@@ -1,0 +1,5 @@
+/home/gridsan/akolodziej/01_insert_domains/scripts/count_caths.py:25: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
+  df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
+Saved outputs/parent_cath_counts.csv!
+Calculating insertion duplicates...
+Saved outputs/insert_cath_counts.csv!

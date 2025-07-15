@@ -1,0 +1,446 @@
+None
+host: login-4
+Building DAG of jobs...
+Need to rerun job make_uniref50_dictionary because of missing output required by all.
+Need to rerun job all because job make_uniref50_dictionary has to be rerun.
+outputs/uniprot_to_uniref50_mapping.pkl: True 0
+: False 1
+shared_storage_local_copies: True
+remote_exec: False
+Submitting maximum 100 job(s) over 1.0 second(s).
+SLURM run ID: 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+Using shell: /usr/bin/bash
+Provided remote nodes: 1
+Job stats:
+job                         count
+------------------------  -------
+all                             1
+make_uniref50_dictionary        1
+total                           2
+
+Resources before job selection: {'_cores': 9223372036854775807, '_nodes': 1, '_job_count': 9223372036854775807}
+Ready jobs: 1
+Select jobs to execute...
+Selecting jobs to run using greedy solver.
+Selected jobs: 1
+Resources after job selection: {'_cores': 9223372036854775806, '_nodes': 0, '_job_count': 100}
+Execute 1 jobs...
+[Mon Jul  7 18:11:14 2025]
+rule make_uniref50_dictionary:
+    input: /home/gridsan/akolodziej/solab_shared/uniref50/uniref50.xml.gz
+    output: outputs/uniprot_to_uniref50_mapping.pkl
+    log: logs/uniref50_dictionary.log
+    jobid: 1
+    reason: Missing output files: outputs/uniprot_to_uniref50_mapping.pkl
+    resources: tmpdir=<TBD>, mem_mb=64000, mem_mib=61036, time_min=1200, cpus_per_task=1
+Shell command: python -u scripts/uniref50_to_dict.py /home/gridsan/akolodziej/solab_shared/uniref50/uniref50.xml.gz outputs/uniprot_to_uniref50_mapping.pkl &> logs/uniref50_dictionary.log
+No SLURM account given, trying to guess.
+Unable to guess SLURM account. Trying to proceed without.
+No wall time information given. This might or might not work on your cluster. If not, specify the resource runtime in your rule or as a reasonable default via --default-resources.
+General args: ['--force', '--target-files-omit-workdir-adjustment', '', '--max-inventory-time 0', '--nocolor', '--notemp', '--no-hooks', '--nolock', '--ignore-incomplete', '', '--verbose ', '--rerun-triggers code input params mtime software-env', '', '', '', '', "--conda-frontend 'conda'", '', '', '', '', '', '--shared-fs-usage persistence source-cache sources software-deployment input-output storage-local-copies', '', "--wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/'", '', '', '', '--printshellcmds ', '', '--latency-wait 5', "--scheduler 'ilp'", '', '--local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl', "--scheduler-solver-path '/home/gridsan/akolodziej/.conda/envs/snakemake/bin'", '', '', '', '', '', '', '--default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI=', '']
+sbatch call: sbatch --parsable --job-name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4 --output "/home/gridsan/akolodziej/01_insert_domains/.snakemake/slurm_logs/rule_make_uniref50_dictionary/%j.log" --export=ALL --comment "rule_make_uniref50_dictionary"   -p xeon-g6-volta --mem 64000 --ntasks=1 --cpus-per-task=1 -D '/home/gridsan/akolodziej/01_insert_domains' --wrap="/home/gridsan/akolodziej/.conda/envs/snakemake/bin/python3.12 -m snakemake --snakefile '/home/gridsan/akolodziej/01_insert_domains/Snakefile' --target-jobs 'make_uniref50_dictionary:' --allowed-rules make_uniref50_dictionary --cores 'all' --attempt 1 --force-use-threads  --wait-for-files '/home/gridsan/akolodziej/01_insert_domains/.snakemake/tmp.jik8ejuo' '/home/gridsan/akolodziej/solab_shared/uniref50/uniref50.xml.gz' --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --notemp --no-hooks --nolock --ignore-incomplete --verbose  --rerun-triggers code input params mtime software-env --conda-frontend 'conda' --shared-fs-usage persistence source-cache sources software-deployment input-output storage-local-copies --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --printshellcmds  --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/gridsan/akolodziej/.conda/envs/snakemake/bin' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --executor slurm-jobstep --jobs 1 --mode 'remote'"
+Job 1 has been submitted with SLURM jobid 1141041 (log: /home/gridsan/akolodziej/01_insert_domains/.snakemake/slurm_logs/rule_make_uniref50_dictionary/1141041.log).
+Waiting for running jobs to complete.
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.10980629920959473 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.1100168228149414 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.0997469425201416 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.10027027130126953 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.10002470016479492 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.10989594459533691 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.1202080249786377 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.11025261878967285 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.11049914360046387 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.10980224609375 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.10010266304016113 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.11193990707397461 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.10173678398132324 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.10966897010803223 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.11005067825317383 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.1100473403930664 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.10976266860961914 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.1100623607635498 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.12719988822937012 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.1179056167602539 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.1102604866027832 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.12164711952209473 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.1363990306854248 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T18:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.1094350814819336 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T19:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.11321330070495605 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T19:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.15099263191223145 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T19:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.12150216102600098 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T19:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.1186380386352539 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T19:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.12804341316223145 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T19:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.11749053001403809 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T19:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.11902070045471191 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T19:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.11380600929260254 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T19:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.12293028831481934 seconds
+The output is:
+'1141041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1141041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-05T19:00 --endtime now --name 68f5e3fc-2f3a-4e74-aadf-a00a7363bdb4
+It took: 0.12190461158752441 seconds
+The output is:
+'1141041|COMPLETED
+'
+
+status_of_jobs after sacct is: {'1141041': 'COMPLETED'}
+active_jobs_ids_with_current_sacct_status are: {'1141041'}
+active_jobs_seen_by_sacct are: {'1141041'}
+missing_sacct_status are: set()
+removing log for successful job with SLURM ID '1141041'
+[Mon Jul  7 19:28:23 2025]
+Finished jobid: 1 (Rule: make_uniref50_dictionary)
+1 of 2 steps (50%) done
+: True 0
+Resources before job selection: {'_cores': 9223372036854775807, '_nodes': 1, '_job_count': 100}
+Ready jobs: 1
+Select jobs to execute...
+Selecting jobs to run using greedy solver.
+Selected jobs: 1
+Resources after job selection: {'_cores': 9223372036854775806, '_nodes': 0, '_job_count': 100}
+Execute 1 jobs...
+[Mon Jul  7 19:28:23 2025]
+localrule all:
+    input: outputs/uniprot_to_uniref50_mapping.pkl
+    jobid: 0
+    reason: Input files updated by another job: outputs/uniprot_to_uniref50_mapping.pkl
+    resources: tmpdir=/tmp
+Shell command: None
+Waiting for running jobs to complete.
+[Mon Jul  7 19:28:23 2025]
+Finished jobid: 0 (Rule: all)
+2 of 2 steps (100%) done
+Cleaning up log files older than 10 day(s).
+Complete log(s): /home/gridsan/akolodziej/01_insert_domains/.snakemake/log/2025-07-07T181114.727025.snakemake.log
+unlocking
+removing lock
+removing lock
+removed all locks

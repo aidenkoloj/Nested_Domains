@@ -1,0 +1,83 @@
+None
+host: login-4
+Building DAG of jobs...
+Need to rerun job parent_insert_duplications because of missing output required by all.
+Need to rerun job all because job parent_insert_duplications has to be rerun.
+outputs/parent_insert_duplications.csv: True 0
+: False 1
+shared_storage_local_copies: True
+remote_exec: False
+Submitting maximum 100 job(s) over 1.0 second(s).
+SLURM run ID: 580933db-b952-4465-b035-e806bd24e4a8
+Using shell: /usr/bin/bash
+Provided remote nodes: 5
+Job stats:
+job                           count
+--------------------------  -------
+all                               1
+parent_insert_duplications        1
+total                             2
+
+Resources before job selection: {'_cores': 9223372036854775807, '_nodes': 5, '_job_count': 9223372036854775807}
+Ready jobs: 1
+Select jobs to execute...
+Selecting jobs to run using greedy solver.
+Selected jobs: 1
+Resources after job selection: {'_cores': 9223372036854775806, '_nodes': 4, '_job_count': 100}
+Execute 1 jobs...
+[Fri Jul 11 16:46:25 2025]
+rule parent_insert_duplications:
+    input: outputs/uniref50_nested_domain_pairs.tsv
+    output: outputs/parent_insert_duplications.csv
+    log: logs/parent_insert_dup.log
+    jobid: 6
+    reason: Missing output files: outputs/parent_insert_duplications.csv
+    resources: tmpdir=<TBD>, mem_mb=4000, mem_mib=3815, time_min=10, cpus_per_task=1
+Shell command: python -u scripts/parent_insert_duplications.py outputs/uniref50_nested_domain_pairs.tsv outputs/parent_insert_duplications.csv &> logs/parent_insert_dup.log
+No SLURM account given, trying to guess.
+Unable to guess SLURM account. Trying to proceed without.
+No wall time information given. This might or might not work on your cluster. If not, specify the resource runtime in your rule or as a reasonable default via --default-resources.
+General args: ['--force', '--target-files-omit-workdir-adjustment', '', '--max-inventory-time 0', '--nocolor', '--notemp', '--no-hooks', '--nolock', '--ignore-incomplete', '', '--verbose ', '--rerun-triggers software-env input code mtime params', '', '', '', '', "--conda-frontend 'conda'", '', '', '', '', '', '--shared-fs-usage source-cache storage-local-copies sources persistence input-output software-deployment', '', "--wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/'", '', '', '', '--printshellcmds ', '', '--latency-wait 5', "--scheduler 'ilp'", '', '--local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl', "--scheduler-solver-path '/home/gridsan/akolodziej/.conda/envs/snakemake/bin'", '', '', '', '', '', '', '--default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI=', '']
+sbatch call: sbatch --parsable --job-name 580933db-b952-4465-b035-e806bd24e4a8 --output "/home/gridsan/akolodziej/01_insert_domains/.snakemake/slurm_logs/rule_parent_insert_duplications/%j.log" --export=ALL --comment "rule_parent_insert_duplications"   -p xeon-g6-volta --mem 4000 --ntasks=1 --cpus-per-task=1 -D '/home/gridsan/akolodziej/01_insert_domains' --wrap="/home/gridsan/akolodziej/.conda/envs/snakemake/bin/python3.12 -m snakemake --snakefile '/home/gridsan/akolodziej/01_insert_domains/Snakefile' --target-jobs 'parent_insert_duplications:' --allowed-rules parent_insert_duplications --cores 'all' --attempt 1 --force-use-threads  --wait-for-files '/home/gridsan/akolodziej/01_insert_domains/.snakemake/tmp.g0n2gmb2' 'outputs/uniref50_nested_domain_pairs.tsv' --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --notemp --no-hooks --nolock --ignore-incomplete --verbose  --rerun-triggers software-env input code mtime params --conda-frontend 'conda' --shared-fs-usage source-cache storage-local-copies sources persistence input-output software-deployment --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --printshellcmds  --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/gridsan/akolodziej/.conda/envs/snakemake/bin' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --executor slurm-jobstep --jobs 1 --mode 'remote'"
+Job 6 has been submitted with SLURM jobid 1210723 (log: /home/gridsan/akolodziej/01_insert_domains/.snakemake/slurm_logs/rule_parent_insert_duplications/1210723.log).
+Waiting for running jobs to complete.
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-09T16:00 --endtime now --name 580933db-b952-4465-b035-e806bd24e4a8
+It took: 0.1199183464050293 seconds
+The output is:
+'1210723|COMPLETED
+'
+
+status_of_jobs after sacct is: {'1210723': 'COMPLETED'}
+active_jobs_ids_with_current_sacct_status are: {'1210723'}
+active_jobs_seen_by_sacct are: {'1210723'}
+missing_sacct_status are: set()
+removing log for successful job with SLURM ID '1210723'
+[Fri Jul 11 16:47:05 2025]
+Finished jobid: 6 (Rule: parent_insert_duplications)
+1 of 2 steps (50%) done
+: True 0
+Resources before job selection: {'_cores': 9223372036854775807, '_nodes': 5, '_job_count': 100}
+Ready jobs: 1
+Select jobs to execute...
+Selecting jobs to run using greedy solver.
+Selected jobs: 1
+Resources after job selection: {'_cores': 9223372036854775806, '_nodes': 4, '_job_count': 100}
+Execute 1 jobs...
+[Fri Jul 11 16:47:05 2025]
+localrule all:
+    input: outputs/uniprot_to_uniref50_mapping.pkl, outputs/nested_domain_pairs_validations.tsv, outputs/uniref50_nested_domain_pairs.tsv, outputs/insert_cath_counts.csv, outputs/popular_inserts.csv, outputs/parent_insert_duplications.csv
+    jobid: 0
+    reason: Input files updated by another job: outputs/parent_insert_duplications.csv
+    resources: tmpdir=/tmp
+Shell command: None
+Waiting for running jobs to complete.
+[Fri Jul 11 16:47:05 2025]
+Finished jobid: 0 (Rule: all)
+2 of 2 steps (100%) done
+Cleaning up log files older than 10 day(s).
+Complete log(s): /home/gridsan/akolodziej/01_insert_domains/.snakemake/log/2025-07-11T164624.996970.snakemake.log
+unlocking
+removing lock
+removing lock
+removed all locks

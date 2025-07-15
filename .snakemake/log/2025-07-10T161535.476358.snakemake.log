@@ -1,0 +1,12 @@
+None
+host: login-2
+Building DAG of jobs...
+shared_storage_local_copies: True
+remote_exec: False
+Submitting maximum 100 job(s) over 1.0 second(s).
+SLURM run ID: 63dfbbc2-cc9f-41a1-bd61-1fa18db109ad
+Nothing to be done (all requested files are present and up to date).
+unlocking
+removing lock
+removing lock
+removed all locks

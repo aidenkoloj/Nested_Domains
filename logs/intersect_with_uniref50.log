@@ -1,0 +1,10 @@
+Loaded dictionary with 255,034,336 entries
+Processed 100,000 rows...
+Processed 200,000 rows...
+Processed 300,000 rows...
+Processing complete
+Total rows in original TSV (excluding header): 345,869
+Rows written to filtered output: 129,170
+Unique UniRef50 clusters written: 37,495
+Frequency counts saved to 'uniref50_frequency.tsv'
+UniProt IDs with no UniRef50 mapping: 91,675 (saved to 'unmapped_uniprot_ids.txt')

@@ -1,0 +1,160 @@
+None
+host: login-2
+Building DAG of jobs...
+Need to rerun job popular_inserts because of missing output required by all.
+Need to rerun job all because job popular_inserts has to be rerun.
+outputs/popular_inserts.csv: True 0
+: False 1
+shared_storage_local_copies: True
+remote_exec: False
+Submitting maximum 100 job(s) over 1.0 second(s).
+SLURM run ID: 44ef0aca-2c3d-401e-abce-0fa185536d51
+Using shell: /usr/bin/bash
+Provided remote nodes: 5
+Job stats:
+job                count
+---------------  -------
+all                    1
+popular_inserts        1
+total                  2
+
+Resources before job selection: {'_cores': 9223372036854775807, '_nodes': 5, '_job_count': 9223372036854775807}
+Ready jobs: 1
+Select jobs to execute...
+Selecting jobs to run using greedy solver.
+Selected jobs: 1
+Resources after job selection: {'_cores': 9223372036854775806, '_nodes': 4, '_job_count': 100}
+Execute 1 jobs...
+[Thu Jul 10 12:06:29 2025]
+rule popular_inserts:
+    input: outputs/uniref50_nested_domain_pairs.tsv
+    output: outputs/popular_inserts.csv
+    log: logs/pop_inserts.log
+    jobid: 5
+    reason: Missing output files: outputs/popular_inserts.csv
+    resources: tmpdir=<TBD>, mem_mb=64000, mem_mib=61036, time_min=180, cpus_per_task=1
+Shell command: python -u scripts/popular_inserts.py outputs/uniref50_nested_domain_pairs.tsv outputs/popular_inserts.csv &> logs/pop_inserts.log
+No SLURM account given, trying to guess.
+Unable to guess SLURM account. Trying to proceed without.
+No wall time information given. This might or might not work on your cluster. If not, specify the resource runtime in your rule or as a reasonable default via --default-resources.
+General args: ['--force', '--target-files-omit-workdir-adjustment', '', '--max-inventory-time 0', '--nocolor', '--notemp', '--no-hooks', '--nolock', '--ignore-incomplete', '', '--verbose ', '--rerun-triggers software-env input params code mtime', '', '', '', '', "--conda-frontend 'conda'", '', '', '', '', '', '--shared-fs-usage source-cache software-deployment persistence storage-local-copies sources input-output', '', "--wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/'", '', '', '', '--printshellcmds ', '', '--latency-wait 5', "--scheduler 'ilp'", '', '--local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl', "--scheduler-solver-path '/home/gridsan/akolodziej/.conda/envs/snakemake/bin'", '', '', '', '', '', '', '--default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI=', '']
+sbatch call: sbatch --parsable --job-name 44ef0aca-2c3d-401e-abce-0fa185536d51 --output "/home/gridsan/akolodziej/01_insert_domains/.snakemake/slurm_logs/rule_popular_inserts/%j.log" --export=ALL --comment "rule_popular_inserts"   -p xeon-g6-volta --mem 64000 --ntasks=1 --cpus-per-task=1 -D '/home/gridsan/akolodziej/01_insert_domains' --wrap="/home/gridsan/akolodziej/.conda/envs/snakemake/bin/python3.12 -m snakemake --snakefile '/home/gridsan/akolodziej/01_insert_domains/Snakefile' --target-jobs 'popular_inserts:' --allowed-rules popular_inserts --cores 'all' --attempt 1 --force-use-threads  --wait-for-files '/home/gridsan/akolodziej/01_insert_domains/.snakemake/tmp.vqsjzxzg' 'outputs/uniref50_nested_domain_pairs.tsv' --force --target-files-omit-workdir-adjustment --max-inventory-time 0 --nocolor --notemp --no-hooks --nolock --ignore-incomplete --verbose  --rerun-triggers software-env input params code mtime --conda-frontend 'conda' --shared-fs-usage source-cache software-deployment persistence storage-local-copies sources input-output --wrapper-prefix 'https://github.com/snakemake/snakemake-wrappers/raw/' --printshellcmds  --latency-wait 5 --scheduler 'ilp' --local-storage-prefix base64//LnNuYWtlbWFrZS9zdG9yYWdl --scheduler-solver-path '/home/gridsan/akolodziej/.conda/envs/snakemake/bin' --default-resources base64//dG1wZGlyPXN5c3RlbV90bXBkaXI= --executor slurm-jobstep --jobs 1 --mode 'remote'"
+Job 5 has been submitted with SLURM jobid 1182041 (log: /home/gridsan/akolodziej/01_insert_domains/.snakemake/slurm_logs/rule_popular_inserts/1182041.log).
+Waiting for running jobs to complete.
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-08T12:00 --endtime now --name 44ef0aca-2c3d-401e-abce-0fa185536d51
+It took: 0.12975144386291504 seconds
+The output is:
+'1182041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1182041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1182041'}
+active_jobs_seen_by_sacct are: {'1182041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-08T12:00 --endtime now --name 44ef0aca-2c3d-401e-abce-0fa185536d51
+It took: 0.09962153434753418 seconds
+The output is:
+'1182041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1182041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1182041'}
+active_jobs_seen_by_sacct are: {'1182041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-08T12:00 --endtime now --name 44ef0aca-2c3d-401e-abce-0fa185536d51
+It took: 0.10814213752746582 seconds
+The output is:
+'1182041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1182041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1182041'}
+active_jobs_seen_by_sacct are: {'1182041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-08T12:00 --endtime now --name 44ef0aca-2c3d-401e-abce-0fa185536d51
+It took: 0.10970234870910645 seconds
+The output is:
+'1182041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1182041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1182041'}
+active_jobs_seen_by_sacct are: {'1182041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-08T12:00 --endtime now --name 44ef0aca-2c3d-401e-abce-0fa185536d51
+It took: 0.09862208366394043 seconds
+The output is:
+'1182041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1182041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1182041'}
+active_jobs_seen_by_sacct are: {'1182041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-08T12:00 --endtime now --name 44ef0aca-2c3d-401e-abce-0fa185536d51
+It took: 0.10832405090332031 seconds
+The output is:
+'1182041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1182041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1182041'}
+active_jobs_seen_by_sacct are: {'1182041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-08T12:00 --endtime now --name 44ef0aca-2c3d-401e-abce-0fa185536d51
+It took: 0.10850095748901367 seconds
+The output is:
+'1182041|RUNNING
+'
+
+status_of_jobs after sacct is: {'1182041': 'RUNNING'}
+active_jobs_ids_with_current_sacct_status are: {'1182041'}
+active_jobs_seen_by_sacct are: {'1182041'}
+missing_sacct_status are: set()
+Checking the status of 1 active jobs with 5 attempts.
+The job status was queried with command: sacct -X --parsable2 --clusters all --noheader --format=JobIdRaw,State --starttime 2025-07-08T12:00 --endtime now --name 44ef0aca-2c3d-401e-abce-0fa185536d51
+It took: 0.09829044342041016 seconds
+The output is:
+'1182041|COMPLETED
+'
+
+status_of_jobs after sacct is: {'1182041': 'COMPLETED'}
+active_jobs_ids_with_current_sacct_status are: {'1182041'}
+active_jobs_seen_by_sacct are: {'1182041'}
+missing_sacct_status are: set()
+removing log for successful job with SLURM ID '1182041'
+[Thu Jul 10 12:13:00 2025]
+Finished jobid: 5 (Rule: popular_inserts)
+1 of 2 steps (50%) done
+: True 0
+Resources before job selection: {'_cores': 9223372036854775807, '_nodes': 5, '_job_count': 100}
+Ready jobs: 1
+Select jobs to execute...
+Selecting jobs to run using greedy solver.
+Selected jobs: 1
+Resources after job selection: {'_cores': 9223372036854775806, '_nodes': 4, '_job_count': 100}
+Execute 1 jobs...
+[Thu Jul 10 12:13:00 2025]
+localrule all:
+    input: outputs/uniprot_to_uniref50_mapping.pkl, outputs/nested_domain_pairs.tsv, outputs/uniref50_nested_domain_pairs.tsv, outputs/insert_cath_counts.csv, outputs/popular_inserts.csv
+    jobid: 0
+    reason: Input files updated by another job: outputs/popular_inserts.csv
+    resources: tmpdir=/tmp
+Shell command: None
+Waiting for running jobs to complete.
+[Thu Jul 10 12:13:00 2025]
+Finished jobid: 0 (Rule: all)
+2 of 2 steps (100%) done
+Cleaning up log files older than 10 day(s).
+Complete log(s): /home/gridsan/akolodziej/01_insert_domains/.snakemake/log/2025-07-10T120629.018211.snakemake.log
+unlocking
+removing lock
+removing lock
+removed all locks
